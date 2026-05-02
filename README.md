@@ -1,33 +1,54 @@
-# 🌌 AI Poetry Generator (Flask + Groq)
+# 🌌 AI Poetry Chatbot
 
-## 📌 Overview
-A Flask-based web application that generates AI-powered poetry in multiple moods and literary styles.  
-It uses Groq API with Llama 3.1 8B Instant model to produce expressive, context-aware poetic text in real time.
+AI-powered poetry generation web application built using Flask and Groq API.
+
+🌐 **Live Demo**  
+https://ai-poetry-chatbot.onrender.com
+
+💻 **GitHub Repository**  
+https://github.com/sauravoole-ai/AI_Poetry_Chatbot
 
 ---
 
-## 🚀 Features
-- 🎭 AI-generated poetry based on mood/style prompts  
-- 🌙 Multiple creative tones (cinematic, reflective, abstract, emotional)  
-- ⚡ Fast inference using Groq LLM API  
-- 📄 Download generated poetry as PDF  
-- 🎨 Interactive UI with animated visual background  
-- 📱 Responsive web interface
+## ✨ Features
+
+- 🎭 AI-generated poetry
+- 🌙 Multiple mood selections
+- ⚡ Fast generation using Groq API
+- 📄 PDF download support
+- 🎨 Interactive responsive UI
+- ☁️ Cloud deployment on Render
 
 ---
 
 ## 🧠 Tech Stack
-- Python (Flask)
-- HTML, CSS, JavaScript
-- Groq API (Llama 3.1 8B Instant)
-- ReportLab (PDF generation)
+
+- 🐍 Python & Flask
+- 🧠 Groq API (Llama 3.1 8B Instant)
+- 🎨 HTML, CSS, JavaScript
+- 📄 ReportLab
+- 🚀 Gunicorn
+- ☁️ Render
 
 ---
 
-## ⚙️ Setup Instructions
+## 📂 Project Structure
 
-```bash
-git clone https://github.com/your-username/poetry_bot.git
-cd poetry_bot
-pip install -r requirements.txt
-python app.py
+```text
+AI_Poetry_Chatbot/
+│
+├── app.py
+├── requirements.txt
+├── Procfile
+├── templates/
+├── static/
+└── README.md
+```
+
+---
+
+## 📌 Notes
+
+- Uses AI-generated responses through external language models
+- Hosted using Render production deployment
+```
