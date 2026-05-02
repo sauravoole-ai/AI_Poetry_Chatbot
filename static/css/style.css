@@ -1,0 +1,435 @@
+/* ---------------- RESET ---------------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ---------------- CINEMATIC BACKGROUND ---------------- */
+
+.bg-animation{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.42),
+        rgba(0,0,0,0.55)
+    ),
+    url("/static/bg/divine_bg.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    z-index:-2;
+
+    animation:
+    bgMove 28s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+
+    0%{
+
+        transform:
+        scale(1)
+        translateX(0px)
+        translateY(0px);
+    }
+
+    100%{
+
+        transform:
+        scale(1.08)
+        translateX(-10px)
+        translateY(-6px);
+    }
+}
+
+/* ---------------- BODY ---------------- */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+
+    overflow-x:hidden;
+
+    font-family:"Georgia", serif;
+}
+
+/* ---------------- PARTICLES ---------------- */
+
+.particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+.particles::before,
+.particles::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:200%;
+
+    height:200%;
+
+    background-image:
+
+    radial-gradient(
+        rgba(255,220,120,0.22) 1px,
+        transparent 1px
+    );
+
+    background-size:120px 120px;
+
+    animation:
+    particleMove 38s linear infinite;
+}
+
+.particles::after{
+
+    animation-duration:55s;
+
+    opacity:0.45;
+}
+
+@keyframes particleMove{
+
+    from{
+
+        transform:
+        translateY(0px)
+        translateX(0px);
+    }
+
+    to{
+
+        transform:
+        translateY(-120px)
+        translateX(-60px);
+    }
+}
+
+/* ---------------- CONTAINER ---------------- */
+
+.container{
+
+    width:90%;
+    max-width:950px;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.45);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    color:white;
+
+    text-align:center;
+
+    animation:
+    floatBox 5s ease-in-out infinite;
+}
+
+@keyframes floatBox{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* ---------------- TITLE ---------------- */
+
+h1{
+
+    font-size:3.2rem;
+
+    font-weight:500;
+
+    margin-bottom:12px;
+
+    letter-spacing:1px;
+
+    color:#fff4d6;
+
+    text-shadow:
+    0 0 8px rgba(255,220,120,0.45),
+    0 0 18px rgba(255,220,120,0.25),
+    0 2px 12px rgba(0,0,0,0.55);
+
+    animation:
+    sacredGlow 4s ease-in-out infinite;
+}
+
+@keyframes sacredGlow{
+
+    0%{
+
+        text-shadow:
+        0 0 8px rgba(255,220,120,0.35),
+        0 0 18px rgba(255,220,120,0.18),
+        0 2px 12px rgba(0,0,0,0.5);
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 14px rgba(255,235,170,0.65),
+        0 0 28px rgba(255,225,120,0.38),
+        0 2px 18px rgba(0,0,0,0.55);
+    }
+
+    100%{
+
+        text-shadow:
+        0 0 8px rgba(255,220,120,0.35),
+        0 0 18px rgba(255,220,120,0.18),
+        0 2px 12px rgba(0,0,0,0.5);
+    }
+}
+
+/* ---------------- SUBTITLE ---------------- */
+
+.subtitle{
+
+    font-size:1.05rem;
+
+    opacity:0.92;
+
+    margin-bottom:35px;
+
+    color:#f1f1f1;
+}
+
+/* ---------------- CONTROLS ---------------- */
+
+.controls{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-bottom:28px;
+}
+
+/* ---------------- INPUTS ---------------- */
+
+input,
+select{
+
+    padding:14px 16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,0.9);
+
+    font-size:15px;
+
+    color:#222;
+
+    min-width:220px;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+button{
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,215,120,0.35),
+        rgba(255,255,255,0.12)
+    );
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+
+    border:
+    1px solid rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(4px);
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,225,150,0.5),
+        rgba(255,255,255,0.18)
+    );
+
+    box-shadow:
+    0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* ---------------- POEM BOX ---------------- */
+
+.poem-box{
+
+    margin-top:20px;
+
+    padding:30px;
+
+    min-height:300px;
+
+    border-radius:22px;
+
+    text-align:left;
+
+    background:rgba(255,255,255,0.09);
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+    inset 0 0 12px rgba(255,255,255,0.05);
+
+    animation:
+    fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0px);
+    }
+}
+
+/* ---------------- POEM TEXT ---------------- */
+
+pre{
+
+    white-space:pre-wrap;
+
+    line-height:2;
+
+    font-size:1.08rem;
+
+    color:#fdfdfd;
+
+    letter-spacing:0.3px;
+}
+
+/* ---------------- POEM LINE ANIMATION ---------------- */
+
+.poem-line{
+
+    opacity:0;
+
+    transform:translateY(14px);
+
+    animation:
+    lineReveal 0.9s ease forwards;
+
+    margin-bottom:10px;
+}
+
+@keyframes lineReveal{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0px);
+    }
+}
+
+/* ---------------- PDF BUTTON ---------------- */
+
+.pdf-btn{
+
+    margin-top:28px;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:768px){
+
+    .container{
+        padding:28px;
+    }
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+    input,
+    select,
+    button{
+        width:100%;
+    }
+
+    .poem-box{
+        padding:22px;
+    }
+}
