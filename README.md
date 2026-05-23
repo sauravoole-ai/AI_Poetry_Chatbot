@@ -39,3 +39,11 @@ AI_Poetry_Chatbot/
 ├── templates/
 ├── static/
 └── README.md
+
+
+
+## 📌 Notes
+
+- Uses AI-generated responses through external language models
+- Hosted using Render production deployment
+```
