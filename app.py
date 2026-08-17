@@ -85,8 +85,10 @@ Requirements:
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-20b",
             messages=[{"role": "user", "content": prompt}],
+            reasoning_effort="low",
+            include_reasoning=False,
             temperature=0.95,
             max_tokens=500,
             top_p=1
