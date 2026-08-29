@@ -135,29 +135,43 @@ Your poem will appear here...
 
             btn.disabled = true;
 
-            const response =
-            await fetch('/generate', {
+            try {
 
-                method:'POST',
+                const response =
+                await fetch('/generate', {
 
-                headers:{
-                    'Content-Type':'application/json'
-                },
+                    method:'POST',
 
-                body:JSON.stringify({
-                    topic
-                })
-            });
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
 
-            const data =
-            await response.json();
+                    body:JSON.stringify({
+                        topic
+                    })
+                });
 
-            typePoem(data.poem);
+                const data =
+                await response.json();
 
-            btn.innerText =
-            '✨ Generate Poem';
+                if (!response.ok || !data.poem) {
+                    throw new Error(data.error || 'The poetry service is unavailable.');
+                }
 
-            btn.disabled = false;
+                typePoem(data.poem);
+
+            } catch (error) {
+
+                document.getElementById('poem').innerHTML =
+                'Unable to generate a poem right now. Please try again.';
+
+            } finally {
+
+                btn.innerText =
+                '✨ Generate Poem';
+
+                btn.disabled = false;
+            }
         }
 
         // ---------------- POEM REVEAL ----------------

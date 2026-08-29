@@ -90,7 +90,7 @@ Requirements:
             reasoning_effort="low",
             include_reasoning=False,
             temperature=0.95,
-            max_tokens=500,
+            max_completion_tokens=1024,
             top_p=1
         )
 
