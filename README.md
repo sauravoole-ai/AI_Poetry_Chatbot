@@ -23,7 +23,7 @@ https://github.com/sauravoole-ai/AI_Poetry_Chatbot
 
 - 🐍 Python
 - ⚙️ Flask
-- 🧠 Groq API / Llama 3.1 8B Instant
+- 🧠 Groq API / openai/gpt-oss-20b
 - 🎨 HTML, CSS, JavaScript
 - 📄 ReportLab
 - 🚀 Gunicorn
@@ -39,11 +39,9 @@ AI_Poetry_Chatbot/
 ├── templates/
 ├── static/
 └── README.md
-
-
+```
 
 ## 📌 Notes
 
 - Uses AI-generated responses through external language models
 - Hosted using Render production deployment
-```
