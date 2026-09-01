@@ -12,8 +12,13 @@ load_dotenv()
 # ---------------- APP ----------------
 app = Flask(__name__)
 
-# ✅ FIX 1: SAFE SECRET KEY (Render-safe fallback)
-app.secret_key = os.getenv("FLASK_SECRET", "dev_secret_key_change_me_123")
+# ✅ FIX 1: REQUIRE A CONFIGURED SECRET KEY
+FLASK_SECRET = os.getenv("FLASK_SECRET")
+
+if not FLASK_SECRET:
+    raise RuntimeError("FLASK_SECRET not set in environment variables")
+
+app.secret_key = FLASK_SECRET
 
 # ---------------- GROQ ----------------
 # ✅ FIX 2: fail-safe API key handling
@@ -99,8 +104,14 @@ Requirements:
 
         return jsonify({"poem": poem})
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except Exception as error:
+        app.logger.error(
+            "Poem generation failed (%s)",
+            type(error).__name__,
+        )
+        return jsonify({
+            "error": "Unable to generate a poem right now. Please try again."
+        }), 500
 
 # ---------------- PDF ----------------
 @app.route("/pdf")
